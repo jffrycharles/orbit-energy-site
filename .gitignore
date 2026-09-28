@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output (Vercel builds this from source)
+dist/
+
+# Vercel
+.vercel/
+
+# Local environment
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+.vscode/
+.idea/
+
+# Previous draft-hosting tool
+.openai/
+.sites-runtime/
+
+# Archives
+*.tgz
+*.zip
