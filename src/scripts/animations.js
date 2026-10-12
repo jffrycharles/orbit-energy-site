@@ -2,11 +2,12 @@
    All motion lives here; content and links work without it. */
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 
 const all = (selector) => [...document.querySelectorAll(selector)];
 
-export function initAnimations() {
-  gsap.registerPlugin(ScrollTrigger);
+export function initAnimations(pageReady = Promise.resolve()) {
+  gsap.registerPlugin(ScrollTrigger, SplitText);
   const media = gsap.matchMedia();
 
   // Character rollovers follow the Helios button treatment.
@@ -33,7 +34,9 @@ export function initAnimations() {
   });
 
   media.add("(prefers-reduced-motion: no-preference)", () => {
-    const entrance = gsap.timeline({ defaults: { ease: "power3.out" } });
+    // The hero entrance waits for the loading screen to lift.
+    const entrance = gsap.timeline({ paused: true, defaults: { ease: "power3.out" } });
+    pageReady.then(() => entrance.play());
     entrance
       .from(".hero h1 .line > span", { yPercent: 112, duration: 1.05, stagger: 0.11 }, 0.1)
       .from(".hero-copy", { y: 28, opacity: 0, duration: 0.9 }, 0.4)
@@ -48,6 +51,22 @@ export function initAnimations() {
         ease: "power3.out",
         scrollTrigger: { trigger: element, start: "top 91%", once: true },
       });
+    });
+
+    // Statement copy fills in word by word as it scrolls through the viewport.
+    // SplitText keeps an aria-label on the heading and reverts with this context.
+    all("[data-text-reveal]").forEach((element) => {
+      const split = SplitText.create(element, { type: "words" });
+      gsap.fromTo(
+        split.words,
+        { opacity: 0.15 },
+        {
+          opacity: 1,
+          stagger: 0.1,
+          ease: "none",
+          scrollTrigger: { trigger: element, start: "top 85%", end: "bottom 50%", scrub: true },
+        },
+      );
     });
 
     const buttonHandlers = [];
@@ -195,5 +214,7 @@ export function initAnimations() {
     });
   });
   document.fonts.ready.then(() => ScrollTrigger.refresh());
+  // The scrollbar returns once the loading screen is gone, which can shift layout.
+  pageReady.then(() => ScrollTrigger.refresh());
   window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
 }

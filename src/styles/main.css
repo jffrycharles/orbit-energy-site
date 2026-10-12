@@ -220,8 +220,8 @@ h3,
   z-index: 80;
   top: var(--nav-top);
   left: 50%;
-  width: 84%;
-  max-width: 1400px;
+  width: calc(100% - 2 * var(--gutter));
+  max-width: calc(1760px - 2 * var(--gutter));
   transform: translateX(-50%);
   color: var(--paper);
   transition: color 0.25s;
@@ -261,6 +261,7 @@ h3,
   align-items: center;
   gap: 28px;
   flex: 1;
+  min-width: 0;
 }
 .desktop-nav a,
 .nav-phone {
@@ -597,6 +598,9 @@ h3,
 }
 .service-copy p {
   color: rgba(247, 245, 240, 0.7);
+  font-size: 20px;
+  line-height: 1.35;
+  margin-top: 12px;
 }
 .service-link {
   margin-top: 28px;
@@ -643,8 +647,14 @@ h3,
   padding: 8px;
   margin: 48px auto 64px;
   background: rgba(247, 245, 240, 0.05);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(247, 245, 240, 0.3) transparent;
 }
 .tabs button {
+  flex-shrink: 0;
+  white-space: nowrap;
   border-radius: 32px;
   min-height: 40px;
   padding: 8px 18px;
@@ -1048,9 +1058,6 @@ details[open] .faq-icon::after {
   }
 }
 @media (max-width: 1150px) {
-  .site-header {
-    width: 90%;
-  }
   .nav-shell {
     gap: 20px;
   }
@@ -1120,9 +1127,6 @@ details[open] .faq-icon::after {
   .h4 {
     font-size: 28px;
     line-height: 32px;
-  }
-  .site-header {
-    width: calc(100% - 32px);
   }
   .desktop-nav {
     display: none;
@@ -1345,12 +1349,9 @@ details[open] .faq-icon::after {
     padding-block: 5px;
     min-height: 32px;
   }
-  .site-header {
-    width: calc(100% - 24px);
-  }
   .brand,
   .brand img {
-    width: 132px;
+    width: clamp(112px, 34vw, 132px);
   }
   .nav-shell {
     min-height: 54px;
@@ -1436,6 +1437,10 @@ details[open] .faq-icon::after {
   .service-copy p {
     font-size: 24px;
     line-height: 28px;
+  }
+  .service-copy p {
+    font-size: 17px;
+    line-height: 24px;
   }
   .service-link {
     margin-top: 20px;
@@ -1595,6 +1600,63 @@ details[open] .faq-icon::after {
   }
 }
 
+/* ---------- Loading screen ---------- */
+/* Only shown while <html> has .is-loading, which an inline script in the head adds. */
+.loader {
+  display: none;
+}
+.is-loading {
+  overflow: hidden;
+}
+.is-loading .loader {
+  position: fixed;
+  z-index: 200;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: var(--green);
+}
+.loader-inner {
+  width: min(420px, 100% - 2 * var(--gutter));
+  display: grid;
+  gap: 28px;
+}
+.loader-logo {
+  overflow: hidden;
+}
+.loader-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transform: translateY(105%);
+}
+.loader-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.loader-bar {
+  flex: 1;
+  height: 2px;
+  overflow: hidden;
+  background: var(--line);
+}
+.loader-bar span {
+  display: block;
+  height: 100%;
+  background: var(--green);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+.loader-count {
+  min-width: 4ch;
+  text-align: right;
+}
+
 /* ---------- Reduced motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -1642,7 +1704,7 @@ details[open] .faq-icon::after {
   }
 }
 
-/* Compact team directory: Orbit green, yellow accents and four clear profile slots. */
+/* Team directory: the two profiles published on Orbit's official website. */
 .team-banner {
   min-height: 560px;
 }
@@ -1675,8 +1737,10 @@ details[open] .faq-icon::after {
 }
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+  max-width: 1000px;
+  margin-inline: auto;
 }
 .person-card {
   min-width: 0;
@@ -1716,14 +1780,6 @@ details[open] .faq-icon::after {
 }
 .person-placeholder-mary {
   background: var(--green-light);
-}
-.person-placeholder-tbd {
-  background: #26382b;
-  color: var(--paper);
-}
-.person-placeholder-tbd-alt {
-  background: var(--yellow);
-  color: var(--green);
 }
 .person-placeholder .placeholder-initials {
   font-size: clamp(64px, 6vw, 104px);

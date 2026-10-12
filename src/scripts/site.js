@@ -1,11 +1,27 @@
 /* Orbit Energy: navigation and accessible interaction logic. */
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Lenis from "lenis";
+import "lenis/dist/lenis.css";
 
 const $ = (s, root = document) => root.querySelector(s);
 const $$ = (s, root = document) => [...root.querySelectorAll(s)];
 const reduced = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-export function initSite() {
+export function initSite(pageReady = Promise.resolve()) {
+  // Smoothed wheel scrolling, driven by the GSAP ticker so ScrollTrigger stays in sync. Touch stays native.
+  gsap.registerPlugin(ScrollTrigger);
+  let lenis = null;
+  if (!reduced()) {
+    lenis = new Lenis({ lerp: 0.1 });
+    lenis.on("scroll", ScrollTrigger.update);
+    gsap.ticker.add((time) => lenis?.raf(time * 1000));
+    gsap.ticker.lagSmoothing(0);
+    // Hold the page still behind the loading screen.
+    lenis.stop();
+    pageReady.then(() => lenis?.start());
+  }
+
   const header = $("#site-header");
   const menu = $("#mobile-menu");
   const toggle = $(".menu-toggle");
@@ -41,6 +57,8 @@ export function initSite() {
     toggle.setAttribute("aria-expanded", String(open));
     toggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
     document.body.classList.toggle("menu-open", open);
+    if (open) lenis?.stop();
+    else lenis?.start();
     if (open) $("a", menu).focus({ preventScroll: true });
     if (!open && restoreFocus) toggle.focus({ preventScroll: true });
   }
@@ -72,7 +90,7 @@ export function initSite() {
   });
 
   // Anchor destinations remain normal links; this adds eased scrolling and focus handling.
-  let scrollTween;
+  const anchorEase = gsap.parseEase("power3.inOut");
   $$('a[href^="#"]').forEach((link) =>
     link.addEventListener("click", (event) => {
       if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -83,27 +101,17 @@ export function initSite() {
       setMenu(false);
       const end = link.hash === "#home" ? 0 : Math.max(0, target.getBoundingClientRect().top + scrollY - 96);
       history.replaceState(null, "", link.hash);
-      scrollTween?.kill();
       const focusTarget = () => {
         if (!target.hasAttribute("tabindex")) target.setAttribute("tabindex", "-1");
         target.focus({ preventScroll: true });
       };
-      if (!reduced()) {
-        const proxy = { position: scrollY };
-        scrollTween = gsap.to(proxy, {
-          position: end,
-          duration: 1,
-          ease: "power3.inOut",
-          onUpdate: () => window.scrollTo(0, proxy.position),
-          onComplete: focusTarget,
-        });
-      } else {
+      if (lenis) lenis.scrollTo(end, { duration: 1, easing: anchorEase, onComplete: focusTarget });
+      else {
         window.scrollTo(0, end);
         focusTarget();
       }
     }),
   );
-  ["wheel", "touchstart"].forEach((type) => addEventListener(type, () => scrollTween?.kill(), { passive: true }));
 
   const tabs = $$(".tabs [role=tab]");
   const panelRow = $(".panels");
@@ -135,6 +143,14 @@ export function initSite() {
     const panel = document.getElementById(selected.getAttribute("aria-controls"));
     const toX = positionPanels(panel);
     if (focus) selected.focus({ preventScroll: true });
+    const tablist = selected.parentElement;
+    const selectedBounds = selected.getBoundingClientRect();
+    const listBounds = tablist.getBoundingClientRect();
+    if (selectedBounds.left < listBounds.left + 8) {
+      tablist.scrollLeft -= listBounds.left + 8 - selectedBounds.left;
+    } else if (selectedBounds.right > listBounds.right - 8) {
+      tablist.scrollLeft += selectedBounds.right - listBounds.right + 8;
+    }
     if (oldPanel !== panel)
       document.dispatchEvent(new CustomEvent("orbit:tabchange", { detail: { panel, fromX, toX } }));
   }
@@ -246,6 +262,8 @@ export function initSite() {
     if (event.matches) {
       playWanted = false;
       video.pause();
+      lenis?.destroy();
+      lenis = null;
     }
   });
 

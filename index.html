@@ -6,19 +6,34 @@
     <meta name="theme-color" content="#173923" />
     <meta
       name="description"
-      content="Orbit Energy Legal Consultants, P.A. Practical legal guidance for renewable energy, contracts, construction, technology and business."
+      content="Orbit Energy Legal Consultants, P.A. Legal services for residential and commercial solar, battery storage, wind, construction and contracts."
     />
     <meta name="robots" content="noindex,nofollow" />
     <title>Orbit Energy — Legal guidance for what comes next</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preload" href="/src/assets/fonts/switzer-variable.ttf" as="font" type="font/ttf" crossorigin />
+    <script>
+      // Show the loading screen only when scripts run; the timeout is a fallback if they fail.
+      document.documentElement.classList.add("is-loading");
+      setTimeout(() => document.documentElement.classList.remove("is-loading"), 8000);
+    </script>
     <link rel="stylesheet" href="/src/styles/main.css" />
     <script type="module" src="/src/main.js"></script>
   </head>
   <body>
+    <div class="loader" aria-hidden="true">
+      <div class="loader-inner">
+        <div class="loader-logo">
+          <img src="/src/assets/images/orbit-logo-clean.png" width="2162" height="727" alt="" />
+        </div>
+        <div class="loader-meta">
+          <span class="loader-bar"><span></span></span><span class="loader-count">0%</span>
+        </div>
+      </div>
+    </div>
     <a class="skip-link" href="#main">Skip to content</a>
     <div class="announcement">
-      <a href="#history">20+ years of experience. A forward-looking perspective. <span aria-hidden="true">⌄</span></a>
+      <a href="#history">Clean energy. Construction. Business transactions. <span aria-hidden="true">⌄</span></a>
     </div>
     <header class="site-header" id="site-header">
       <div class="nav-shell">
@@ -30,7 +45,7 @@
             alt="Orbit Energy Legal Consultants, P.A."
         /></a>
         <nav class="desktop-nav" aria-label="Main navigation">
-          <a href="#home">Home</a><a href="#features">Features</a><a href="#history">History</a><a href="#team">Team</a
+          <a href="#home">Home</a><a href="#features">Practice areas</a><a href="#history">History</a><a href="#team">Team</a
           ><a href="#contact">Contact us</a>
         </nav>
         <a class="nav-phone" href="tel:+17739356501">(773) 935-6501</a>
@@ -46,7 +61,7 @@
         </button>
       </div>
       <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation" hidden>
-        <a href="#home">Home</a><a href="#features">Features</a><a href="#history">History</a><a href="#team">Team</a
+        <a href="#home">Home</a><a href="#features">Practice areas</a><a href="#history">History</a><a href="#team">Team</a
         ><a href="#contact">Contact us</a>
         <a class="mobile-phone" href="tel:+17739356501">(773) 935-6501</a>
       </nav>
@@ -75,7 +90,7 @@
               ><span class="line muted"><span>A better way forward.</span></span>
             </h1>
             <div class="hero-copy">
-              <p>Legal guidance for renewable energy, construction and technology. Built around your next move.</p>
+              <p>Legal guidance for energy, construction and infrastructure. Support from permitting to project development.</p>
               <div class="button-row">
                 <a class="button button-light" href="#contact"><span class="button-label">Start a conversation</span></a
                 ><a class="button button-glass" href="#features"><span class="button-label">Our expertise</span></a>
@@ -94,10 +109,10 @@
         <div class="opening-content rounded-top" data-nav-theme="light">
           <section class="intro container" aria-labelledby="intro-title">
             <div class="intro-copy">
-              <h2 id="intro-title" class="h4" data-reveal>
-                Progress starts with a clear plan. Orbit Energy brings more than two decades of experience to the
-                agreements and decisions behind renewable energy, construction and technology. We help you see the
-                details, understand the risks and move forward.
+              <h2 id="intro-title" class="h4" data-text-reveal>
+                Orbit Energy Legal Consultants, P.A. provides legal services for energy, construction and
+                infrastructure projects. We support permitting, regulatory compliance, transactions and project
+                development, from residential solar to commercial construction.
               </h2>
               <div class="button-row centered" data-reveal>
                 <a class="button button-soft" href="#history"><span class="button-label">Our story</span></a
@@ -107,10 +122,10 @@
             <div class="orbit-picture-wrap">
               <figure class="orbit-picture">
                 <img
-                  src="/src/assets/images/solar-home.webp"
-                  alt="A home fitted with solar panels and energy storage"
-                  width="1600"
-                  height="1067"
+                  src="/src/assets/images/residential-solar.webp"
+                  alt="Rooftop solar panels on a coastal home"
+                  width="2000"
+                  height="1333"
                   loading="lazy"
                 />
                 <figcaption>From residential solar to commercial construction</figcaption>
@@ -119,74 +134,80 @@
           </section>
           <section class="services" id="features" aria-labelledby="features-title">
             <div class="container section-heading">
-              <h2 id="features-title" data-reveal>Legal support for<br /><span class="muted">the work ahead.</span></h2>
+              <h2 id="features-title" data-reveal>Our practice areas.<br /><span class="muted">Support from start to finish.</span></h2>
               <a class="button button-soft" href="#contact"><span class="button-label">Discuss your project</span></a>
             </div>
-            <div class="service-carousel" role="region" aria-roledescription="carousel" aria-label="Orbit capabilities">
+            <div class="service-carousel" role="region" aria-roledescription="carousel" aria-label="Orbit practice areas">
               <div class="service-track" id="service-track" tabindex="0">
-                <a class="service-card" href="#advice" data-tab-target="energy"
-                  ><img
-                    src="/src/assets/images/solar-panels.webp"
-                    width="900"
-                    height="1100"
-                    alt="Solar panels in a green landscape"
-                    loading="lazy"
-                  />
+                <a class="service-card" href="#advice" data-tab-target="residential">
+                  <img src="/src/assets/images/residential-solar.webp"
+                    width="2000" height="1333"
+                    alt="Rooftop solar panels on a coastal home" loading="lazy" />
                   <div class="card-overlay"></div>
                   <div class="service-copy">
-                    <h3>Renewable energy</h3>
-                    <p>Support for a changing industry</p>
-                    <span class="service-link">Explore our approach <span aria-hidden="true">↗</span></span>
-                  </div></a
-                >
-                <a class="service-card" href="#advice" data-tab-target="contracts"
-                  ><img
-                    src="/src/assets/images/ev-charging.webp"
-                    width="900"
-                    height="1100"
-                    alt="An electric vehicle connected to a charger"
-                    loading="lazy"
-                  />
+                    <h3>Residential Solar</h3>
+                    <p>Guidance for developers and purchasers</p>
+                    <span class="service-link">Explore this practice <span aria-hidden="true">↗</span></span>
+                  </div>
+                </a>
+                <a class="service-card" href="#advice" data-tab-target="commercial">
+                  <img src="/src/assets/images/solar-panels.webp"
+                    width="1920" height="2400"
+                    alt="Solar panels in a green landscape" loading="lazy" />
                   <div class="card-overlay"></div>
                   <div class="service-copy">
-                    <h3>Contracts &amp; negotiation</h3>
-                    <p>Clear terms. Stronger foundations.</p>
-                    <span class="service-link">Explore our approach <span aria-hidden="true">↗</span></span>
-                  </div></a
-                >
-                <a class="service-card" href="#advice" data-tab-target="construction"
-                  ><img
-                    src="/src/assets/images/construction.webp"
-                    width="900"
-                    height="1100"
-                    alt="A solar installation under construction"
-                    loading="lazy"
-                  />
+                    <h3>Commercial and Industrial Solar</h3>
+                    <p>Support throughout your solar project</p>
+                    <span class="service-link">Explore this practice <span aria-hidden="true">↗</span></span>
+                  </div>
+                </a>
+                <a class="service-card" href="#advice" data-tab-target="storage">
+                  <img src="/src/assets/images/battery-storage.webp"
+                    width="1440" height="960"
+                    alt="Rows of industrial batteries for stationary energy storage" loading="lazy" />
                   <div class="card-overlay"></div>
                   <div class="service-copy">
-                    <h3>Construction &amp; risk</h3>
-                    <p>Clarity throughout the project</p>
-                    <span class="service-link">Explore our approach <span aria-hidden="true">↗</span></span>
-                  </div></a
-                >
-                <a class="service-card" href="#advice" data-tab-target="technology"
-                  ><img
-                    src="/src/assets/images/technology.webp"
-                    width="900"
-                    height="1100"
-                    alt="A digital energy monitoring application"
-                    loading="lazy"
-                  />
+                    <h3>Battery Storage and Backup Power</h3>
+                    <p>Contracts, interconnection and incentives</p>
+                    <span class="service-link">Explore this practice <span aria-hidden="true">↗</span></span>
+                  </div>
+                </a>
+                <a class="service-card" href="#advice" data-tab-target="wind">
+                  <img src="/src/assets/images/wind-energy.webp"
+                    width="1440" height="960"
+                    alt="Commercial wind turbines across agricultural fields" loading="lazy" />
                   <div class="card-overlay"></div>
                   <div class="service-copy">
-                    <h3>Technology &amp; SaaS</h3>
-                    <p>Advice for connected businesses</p>
-                    <span class="service-link">Explore our approach <span aria-hidden="true">↗</span></span>
-                  </div></a
-                >
+                    <h3>Commercial Wind Installation</h3>
+                    <p>Legal support for wind development</p>
+                    <span class="service-link">Explore this practice <span aria-hidden="true">↗</span></span>
+                  </div>
+                </a>
+                <a class="service-card" href="#advice" data-tab-target="construction">
+                  <img src="/src/assets/images/commercial-construction.webp"
+                    width="1440" height="960"
+                    alt="Tower cranes above a commercial building under construction" loading="lazy" />
+                  <div class="card-overlay"></div>
+                  <div class="service-copy">
+                    <h3>General Construction</h3>
+                    <p>Licensing, agreements and project risk</p>
+                    <span class="service-link">Explore this practice <span aria-hidden="true">↗</span></span>
+                  </div>
+                </a>
+                <a class="service-card" href="#advice" data-tab-target="contracts">
+                  <img src="/src/assets/images/contract-review.webp"
+                    width="1440" height="1080"
+                    alt="Hands signing and reviewing documents at a table" loading="lazy" />
+                  <div class="card-overlay"></div>
+                  <div class="service-copy">
+                    <h3>Contracts and Transactional Review and Drafting</h3>
+                    <p>Clear agreements from start to finish</p>
+                    <span class="service-link">Explore this practice <span aria-hidden="true">↗</span></span>
+                  </div>
+                </a>
               </div>
               <div class="container carousel-bottom">
-                <span class="carousel-status" aria-live="polite">01 / 04</span>
+                <span class="carousel-status" aria-live="polite">01 / 06</span>
                 <div class="carousel-controls">
                   <button class="circle-button" type="button" data-slide="prev" aria-label="Previous service" disabled>
                     ←</button
@@ -202,110 +223,79 @@
           <h2 id="advice-title" class="h3 text-center" data-reveal>
             Complex decisions.<br /><span class="muted">A clearer perspective.</span>
           </h2>
-          <div class="tabs" role="tablist" aria-label="Areas of expertise">
-            <button id="tab-energy" role="tab" aria-selected="true" aria-controls="panel-energy" tabindex="0">
-              Energy</button
-            ><button id="tab-contracts" role="tab" aria-selected="false" aria-controls="panel-contracts" tabindex="-1">
-              Contracts</button
-            ><button
-              id="tab-construction"
-              role="tab"
-              aria-selected="false"
-              aria-controls="panel-construction"
-              tabindex="-1"
-            >
-              Construction</button
-            ><button
-              id="tab-technology"
-              role="tab"
-              aria-selected="false"
-              aria-controls="panel-technology"
-              tabindex="-1"
-            >
-              Technology
-            </button>
+          <div class="tabs" role="tablist" aria-label="Practice areas">
+            <button id="tab-residential" role="tab" aria-selected="true"
+              aria-controls="panel-residential" aria-label="Residential Solar" tabindex="0">Residential solar</button>
+            <button id="tab-commercial" role="tab" aria-selected="false"
+              aria-controls="panel-commercial" aria-label="Commercial and Industrial Solar" tabindex="-1">Commercial solar</button>
+            <button id="tab-storage" role="tab" aria-selected="false"
+              aria-controls="panel-storage" aria-label="Battery Storage and Backup Power" tabindex="-1">Storage &amp; backup</button>
+            <button id="tab-wind" role="tab" aria-selected="false"
+              aria-controls="panel-wind" aria-label="Commercial Wind Installation" tabindex="-1">Wind</button>
+            <button id="tab-construction" role="tab" aria-selected="false"
+              aria-controls="panel-construction" aria-label="General Construction" tabindex="-1">Construction</button>
+            <button id="tab-contracts" role="tab" aria-selected="false"
+              aria-controls="panel-contracts" aria-label="Contracts and Transactional Review and Drafting" tabindex="-1">Contracts</button>
           </div>
           <div class="panels">
-            <article class="advice-panel" id="panel-energy" role="tabpanel" aria-labelledby="tab-energy">
-              <img
-                src="/src/assets/images/solar-home.webp"
-                width="900"
-                height="1000"
-                alt="Residential solar panels and battery storage"
-                loading="lazy"
-              />
+            <article class="advice-panel" id="panel-residential" role="tabpanel" aria-labelledby="tab-residential">
+              <img src="/src/assets/images/residential-solar.webp"
+                width="2000" height="1333"
+                alt="Rooftop solar panels on a coastal home" loading="lazy" />
               <div class="panel-copy">
-                <h3>Practical advice for a cleaner energy future.</h3>
-                <p>
-                  From residential solar to commercial projects, renewable energy brings together complex agreements,
-                  changing requirements and long-term decisions. We help you understand how the pieces fit.
-                </p>
-                <a class="button button-glass" href="#contact"
-                  ><span class="button-label">Talk about your project</span></a
-                >
+                <h3>Residential Solar</h3>
+                <p>We advise residential solar developers and purchasers on drafting and negotiating agreements, protecting client interests and meeting local requirements.</p>
+                <a class="button button-glass" href="#contact"><span class="button-label">Discuss your project</span></a>
+              </div>
+            </article>
+            <article class="advice-panel" id="panel-commercial" role="tabpanel" aria-labelledby="tab-commercial" hidden>
+              <img src="/src/assets/images/solar-panels.webp"
+                width="1920" height="2400"
+                alt="Solar panels in a green landscape" loading="lazy" />
+              <div class="panel-copy">
+                <h3>Commercial and Industrial Solar</h3>
+                <p>Legal support covers site control, power purchase agreements (PPAs), leases, construction, operations and maintenance, and engineering procurement for commercial and industrial solar projects.</p>
+                <a class="button button-glass" href="#contact"><span class="button-label">Discuss your project</span></a>
+              </div>
+            </article>
+            <article class="advice-panel" id="panel-storage" role="tabpanel" aria-labelledby="tab-storage" hidden>
+              <img src="/src/assets/images/battery-storage.webp"
+                width="1440" height="960"
+                alt="Rows of industrial batteries for stationary energy storage" loading="lazy" />
+              <div class="panel-copy">
+                <h3>Battery Storage and Backup Power</h3>
+                <p>We advise on agreements for energy storage, requirements for interconnection and eligibility for incentives for battery storage and backup power projects.</p>
+                <a class="button button-glass" href="#contact"><span class="button-label">Discuss your project</span></a>
+              </div>
+            </article>
+            <article class="advice-panel" id="panel-wind" role="tabpanel" aria-labelledby="tab-wind" hidden>
+              <img src="/src/assets/images/wind-energy.webp"
+                width="1440" height="960"
+                alt="Commercial wind turbines across agricultural fields" loading="lazy" />
+              <div class="panel-copy">
+                <h3>Commercial Wind Installation</h3>
+                <p>For commercial wind installations, we provide legal support for site control, power purchase agreements (PPAs), leases, construction, operations and maintenance, and engineering procurement.</p>
+                <a class="button button-glass" href="#contact"><span class="button-label">Discuss your project</span></a>
+              </div>
+            </article>
+            <article class="advice-panel" id="panel-construction" role="tabpanel" aria-labelledby="tab-construction" hidden>
+              <img src="/src/assets/images/commercial-construction.webp"
+                width="1440" height="960"
+                alt="Tower cranes above a commercial building under construction" loading="lazy" />
+              <div class="panel-copy">
+                <h3>General Construction</h3>
+                <p>We advise on contractor licensing, agreements for construction projects, compliance requirements and ways to mitigate project risks.</p>
+                <a class="button button-glass" href="#contact"><span class="button-label">Discuss your project</span></a>
               </div>
             </article>
             <article class="advice-panel" id="panel-contracts" role="tabpanel" aria-labelledby="tab-contracts" hidden>
-              <img
-                src="/src/assets/images/ev-charging.webp"
-                width="900"
-                height="1000"
-                alt="Electric vehicle charging infrastructure"
-                loading="lazy"
-              />
+              <img src="/src/assets/images/contract-review.webp"
+                width="1440" height="1080"
+                alt="Hands signing and reviewing documents at a table" loading="lazy" />
               <div class="panel-copy">
-                <h3>Good agreements start with the right questions.</h3>
-                <p>
-                  Contract drafting, review and negotiation bring structure to the way you work. We focus on clear
-                  responsibilities, practical terms and the details that matter to your business.
-                </p>
-                <a class="button button-glass" href="#contact"
-                  ><span class="button-label">Discuss an agreement</span></a
-                >
-              </div>
-            </article>
-            <article
-              class="advice-panel"
-              id="panel-construction"
-              role="tabpanel"
-              aria-labelledby="tab-construction"
-              hidden
-            >
-              <img
-                src="/src/assets/images/construction.webp"
-                width="900"
-                height="1000"
-                alt="An installer working on a solar project"
-                loading="lazy"
-              />
-              <div class="panel-copy">
-                <h3>See the risks before they become roadblocks.</h3>
-                <p>
-                  Construction agreements need to reflect the realities on site. Our approach brings together project
-                  responsibilities, indemnification and risk management from the start.
-                </p>
-                <a class="button button-glass" href="#contact"
-                  ><span class="button-label">Explore project support</span></a
-                >
-              </div>
-            </article>
-            <article class="advice-panel" id="panel-technology" role="tabpanel" aria-labelledby="tab-technology" hidden>
-              <img
-                src="/src/assets/images/technology.webp"
-                width="900"
-                height="1000"
-                alt="Connected energy software on a mobile phone"
-                loading="lazy"
-              />
-              <div class="panel-copy">
-                <h3>Commercial clarity for a connected world.</h3>
-                <p>
-                  Technology and SaaS agreements shape important business relationships. We help make the scope,
-                  responsibilities and commercial terms easier to understand and negotiate.
-                </p>
-                <a class="button button-glass" href="#contact"
-                  ><span class="button-label">Discuss your business</span></a
-                >
+                <h3>Contracts and Transactional Review and Drafting</h3>
+                <p>We draft and review contracts throughout energy and infrastructure development, supporting transactions from the beginning of a project through completion.</p>
+                <a class="button button-glass" href="#contact"><span class="button-label">Discuss your project</span></a>
               </div>
             </article>
           </div>
@@ -318,8 +308,8 @@
       >
         <img
           src="/src/assets/images/solar-rooftop.webp"
-          width="1920"
-          height="1080"
+          width="2800"
+          height="1867"
           alt="A residential rooftop with solar panels"
           class="parallax-image"
           loading="lazy"
@@ -346,29 +336,29 @@
               <img
                 class="story-image is-active"
                 src="/src/assets/images/modern-home.webp"
-                width="1000"
-                height="1000"
+                width="2800"
+                height="2099"
                 alt="Modern home with solar panels surrounded by trees"
               /><img
                 class="story-image"
                 src="/src/assets/images/solar-panels.webp"
-                width="1000"
-                height="1000"
+                width="1920"
+                height="2400"
                 alt="Solar energy infrastructure"
                 loading="lazy"
               /><img
                 class="story-image"
-                src="/src/assets/images/construction.webp"
-                width="1000"
-                height="1000"
-                alt="Construction of a rooftop solar system"
+                src="/src/assets/images/commercial-construction.webp"
+                width="1440"
+                height="960"
+                alt="Tower cranes above a commercial building under construction"
                 loading="lazy"
               /><img
                 class="story-image"
-                src="/src/assets/images/technology.webp"
-                width="1000"
-                height="1000"
-                alt="Energy technology and software"
+                src="/src/assets/images/wind-energy.webp"
+                width="1440"
+                height="960"
+                alt="Commercial wind turbines across agricultural fields"
                 loading="lazy"
               />
               <div class="story-progress" aria-hidden="true"><span></span></div>
@@ -376,20 +366,20 @@
             <div class="story-steps">
               <article class="story-step">
                 <span class="step-number">01 / Experience</span>
-                <h3>More than two decades<br />of perspective.</h3>
+                <h3>Nearly two decades<br />of Orbit Energy.</h3>
                 <p>
-                  Years of experience shape the way we look at your business: the agreements, the decisions and the
-                  details that help you take the next step.
+                  Orbit Energy has served clients for nearly two decades. President Joshua Nathan brings more than
+                  30 years of experience representing clean energy developers and manufacturers.
                 </p>
-                <span class="story-stat">20<span>+</span></span
-                ><span class="label">Years in business</span>
+                <span class="story-stat">30<span>+</span></span
+                ><span class="label">Years of Joshua’s legal experience</span>
               </article>
               <article class="story-step">
                 <span class="step-number">02 / Focus</span>
                 <h3>Rooted in<br />renewable energy.</h3>
                 <p>
-                  Our work centres on the legal needs of renewable energy projects, from residential solar panels to
-                  commercial construction.
+                  Our practice covers residential, commercial and industrial solar, battery storage and backup
+                  power, and commercial wind installation.
                 </p>
                 <a class="text-link" href="#features">Explore our expertise <span aria-hidden="true">↗</span></a>
               </article>
@@ -397,8 +387,8 @@
                 <span class="step-number">03 / Perspective</span>
                 <h3>Connecting projects<br />and business.</h3>
                 <p>
-                  Contracts, negotiation, indemnification and corporate governance each play a part in how a business
-                  operates. Our approach considers how those parts work together.
+                  We support general construction and energy infrastructure through contract review and drafting,
+                  contractor licensing, compliance and risk mitigation.
                 </p>
                 <a class="text-link" href="#advice">Our approach <span aria-hidden="true">↗</span></a>
               </article>
@@ -406,8 +396,8 @@
                 <span class="step-number">04 / What’s next</span>
                 <h3>Ready for<br />the next conversation.</h3>
                 <p>
-                  Energy, construction and technology continue to change. We bring our experience to the questions and
-                  opportunities in front of you.
+                  As a small, focused firm, Orbit offers personal attention, timely responses and flexible rates
+                  for entrepreneurial businesses and established corporations.
                 </p>
                 <a class="button button-dark" href="#contact"><span class="button-label">Let’s talk</span></a>
               </article>
@@ -419,8 +409,8 @@
         <img
           class="parallax-image"
           src="/src/assets/images/modern-home.webp"
-          width="1920"
-          height="1080"
+          width="2800"
+          height="2099"
           alt="Solar-powered architecture in a green landscape"
           loading="lazy"
         />
@@ -440,9 +430,7 @@
               </h2>
             </div>
             <p class="section-note">
-              A direct connection.<br />A shared understanding of your goals.<br /><span
-                >Additional profiles can be added as the team grows.</span
-              >
+              Meet Joshua Nathan and Mary Mathieu.<br />Personal attention for your energy and construction projects.
             </p>
           </div>
           <div class="team-grid">
@@ -490,14 +478,14 @@
                     </ul>
                   </div>
                 </details>
-                <a class="button button-soft person-contact" href="mailto:joshua.nathan@orbitenergypa.com"
-                  ><span class="button-label">Contact Joshua</span></a
+                <a class="button button-soft person-contact" href="mailto:info@orbitenergypa.com"
+                  ><span class="button-label">Contact Orbit</span></a
                 >
               </div>
             </article>
             <article class="person-card">
               <div class="person-media person-placeholder person-placeholder-mary">
-                <span class="placeholder-initials">MM</span><span class="label">Photo to follow</span>
+                <span class="placeholder-initials">MM</span><span class="label">Mary Mathieu</span>
               </div>
               <div class="person-copy">
                 <div class="person-top">
@@ -519,32 +507,6 @@
                 </details>
               </div>
             </article>
-            <article class="person-card">
-              <div class="person-media person-placeholder person-placeholder-tbd">
-                <span class="placeholder-initials">03</span><span class="label">Profile to follow</span>
-              </div>
-              <div class="person-copy">
-                <div class="person-top"><span class="label">03 / Team profile</span></div>
-                <h3>Team member profile</h3>
-                <p class="person-role">Details coming soon</p>
-                <p class="person-summary">
-                  Name, portrait and role to be added after the client provides the remaining team details.
-                </p>
-              </div>
-            </article>
-            <article class="person-card">
-              <div class="person-media person-placeholder person-placeholder-tbd-alt">
-                <span class="placeholder-initials">04</span><span class="label">Profile to follow</span>
-              </div>
-              <div class="person-copy">
-                <div class="person-top"><span class="label">04 / Team profile</span></div>
-                <h3>Team member profile</h3>
-                <p class="person-role">Details coming soon</p>
-                <p class="person-summary">
-                  A fourth profile placeholder is ready for the next Orbit team member and biography.
-                </p>
-              </div>
-            </article>
           </div>
         </div>
       </section>
@@ -555,54 +517,27 @@
             <div class="faq-list">
               <details>
                 <summary>What does Orbit Energy do?<span class="faq-icon" aria-hidden="true"></span></summary>
-                <div class="faq-answer">
-                  <p>
-                    Orbit Energy Legal Consultants, P.A. provides legal consulting for renewable energy and related
-                    commercial work, including contracts, construction, risk management, technology and SaaS.
-                  </p>
-                </div>
+                <div class="faq-answer"><p>Orbit Energy Legal Consultants, P.A. advises on legal matters in energy, construction and infrastructure, including permitting, regulatory compliance, transactions and project development.</p></div>
               </details>
               <details>
-                <summary>
-                  Which types of projects do you support?<span class="faq-icon" aria-hidden="true"></span>
-                </summary>
-                <div class="faq-answer">
-                  <p>
-                    Our focus ranges from residential solar panels to commercial construction. Contact us to discuss
-                    whether your project fits the practice.
-                  </p>
-                </div>
+                <summary>Which solar projects do you support?<span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer"><p>We advise residential solar developers and purchasers, as well as commercial and industrial solar projects. Support includes contracts, site control, power purchase agreements, leases, construction, operations and maintenance, and engineering procurement, depending on the practice area.</p></div>
               </details>
               <details>
-                <summary>
-                  Can you help with contracts and negotiation?<span class="faq-icon" aria-hidden="true"></span>
-                </summary>
-                <div class="faq-answer">
-                  <p>
-                    Contract drafting and negotiation are among our areas of focus, alongside indemnification, risk
-                    management and corporate governance.
-                  </p>
-                </div>
+                <summary>Can you help with battery storage and backup power?<span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer"><p>We advise on energy storage agreements, interconnection requirements and incentive eligibility for battery storage and backup power projects.</p></div>
               </details>
               <details>
-                <summary>
-                  Do you work with technology and SaaS businesses?<span class="faq-icon" aria-hidden="true"></span>
-                </summary>
-                <div class="faq-answer">
-                  <p>
-                    Information technology and SaaS are included in Orbit’s areas of focus. Get in touch to discuss the
-                    agreement or commercial question you have in mind.
-                  </p>
-                </div>
+                <summary>Do you support commercial wind installations?<span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer"><p>Yes. Our wind practice covers site control, power purchase agreements, leases, construction, operations and maintenance, and engineering procurement.</p></div>
+              </details>
+              <details>
+                <summary>What support is available for construction and contracts?<span class="faq-icon" aria-hidden="true"></span></summary>
+                <div class="faq-answer"><p>We advise on contractor licensing, project agreements, compliance and risk mitigation. We also draft and review contracts throughout energy and infrastructure development.</p></div>
               </details>
               <details>
                 <summary>How do I start a conversation?<span class="faq-icon" aria-hidden="true"></span></summary>
-                <div class="faq-answer">
-                  <p>
-                    Call the office or email Joshua Nathan with a brief outline of your enquiry. Please wait for
-                    guidance before sending confidential documents.
-                  </p>
-                </div>
+                <div class="faq-answer"><p>Call (773) 935-6501 or email info@orbitenergypa.com to discuss your project or agreement.</p></div>
               </details>
             </div>
             <aside class="faq-aside">
@@ -620,10 +555,10 @@
         aria-labelledby="contact-title"
       >
         <img
-          src="/src/assets/images/solar-home.webp"
-          width="1920"
-          height="1080"
-          alt="Solar panels on a home in a green setting"
+          src="/src/assets/images/residential-solar.webp"
+          width="2000"
+          height="1333"
+          alt="Rooftop solar panels on a coastal home"
           class="parallax-image"
           loading="lazy"
         />
@@ -632,7 +567,7 @@
           <h2 id="contact-title" data-reveal>Let’s put your<br />next move in motion.</h2>
           <p>Talk to Orbit about your energy project, your business, or the agreement in front of you.</p>
           <div class="button-row centered">
-            <a class="button button-light" href="mailto:joshua.nathan@orbitenergypa.com"
+            <a class="button button-light" href="mailto:info@orbitenergypa.com"
               ><span class="button-label">Email Orbit</span></a
             ><a class="button button-glass" href="tel:+17739356501"
               ><span class="button-label">Call the office</span></a
@@ -658,35 +593,34 @@
         </div>
         <div class="footer-grid">
           <div>
-            <p class="footer-label">Expertise</p>
-            <a href="#advice" data-tab-target="energy">Renewable energy</a
-            ><a href="#advice" data-tab-target="contracts">Contracts &amp; negotiation</a
-            ><a href="#advice" data-tab-target="construction">Construction &amp; risk</a
-            ><a href="#advice" data-tab-target="technology">Technology &amp; SaaS</a>
+            <p class="footer-label">Practice areas</p>
+            <a href="#advice" data-tab-target="residential">Residential Solar</a>
+            <a href="#advice" data-tab-target="commercial">Commercial and Industrial Solar</a>
+            <a href="#advice" data-tab-target="storage">Battery Storage and Backup Power</a>
+            <a href="#advice" data-tab-target="wind">Commercial Wind Installation</a>
+            <a href="#advice" data-tab-target="construction">General Construction</a>
+            <a href="#advice" data-tab-target="contracts">Contracts and Transactional Review and Drafting</a>
           </div>
           <div>
             <p class="footer-label">Explore</p>
-            <a href="#home">Home</a><a href="#features">Features</a><a href="#history">History</a
+            <a href="#home">Home</a><a href="#features">Practice areas</a><a href="#history">History</a
             ><a href="#team">Team</a>
           </div>
           <div class="footer-contact">
             <p class="footer-label">Contact</p>
             <p>Orbit Energy<br />Legal Consultants, P.A.</p>
             <a href="tel:+17739356501">(773) 935-6501</a
-            ><a href="mailto:joshua.nathan@orbitenergypa.com">joshua.nathan@orbitenergypa.com</a>
+            ><a href="mailto:info@orbitenergypa.com">info@orbitenergypa.com</a>
           </div>
           <div class="footer-about">
             <p class="footer-label">A clear way forward.</p>
-            <p>Legal consulting for the agreements, projects and decisions shaping the future.</p>
+            <p>Legal services for clean energy, construction and business transactions.</p>
           </div>
         </div>
         <div class="footer-bottom">
           <span>© <span id="year">2026</span> Orbit Energy Legal Consultants, P.A.</span
           ><a href="#home">Back to top ↑</a>
         </div>
-        <p class="draft-note">
-          Website concept for review. Draft copy and illustrative photography are subject to client approval.
-        </p>
       </div>
     </footer>
   </body>
